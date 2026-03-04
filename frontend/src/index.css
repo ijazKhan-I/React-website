@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+
+@import "tailwindcss";
+
+
+:root {
+  --color-primary: #0F172A;          /* Dark navy */
+  --color-secondary: #1E293B;        /* Slightly lighter navy */
+  --color-accent-blue: #06B6D4;      /* Cyan blue */
+  --color-accent-purple: #8B5CF6; 
+  
+}
+
+/* Background colors */
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+/* Text colors */
+.text-accent-blue {
+  color: var(--color-accent-blue);
+}
+
+.text-accent-purple {
+  color: var(--color-accent-purple);
+}
+
+/* Gradient text for accent blue */
+.text-gradient-blue {
+  background: linear-gradient(90deg, #06B6D4 0%, #3B82F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Gradient text for accent purple */
+.text-gradient-purple {
+  background: linear-gradient(90deg, #8B5CF6 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glow shadow for accent blue */
+.shadow-glow-blue {
+  box-shadow: 0 0 15px 5px rgba(6, 182, 212, 0.5);
+}
+
+/* Glow shadow for accent purple */
+.shadow-glow-purple {
+  box-shadow: 0 0 15px 5px rgba(139, 92, 246, 0.5);
+}
+
+/* Button hover states for bg-primary & bg-secondary */
+.bg-primary:hover {
+  background-color: #0b1035; /* Slightly darker */
+  transition: background-color 0.3s ease;
+}
+
+.bg-secondary:hover {
+  background-color: #16283a; /* Slightly darker */
+  transition: background-color 0.3s ease;
+}
+body {
+  background: var(--color-primary);
+  /* or if you want a gradient: */
+  background: linear-gradient(135deg, #080808, #1E293B);
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif; 
+
+}
+
+
+
+
+/* Initialize CSS variable */
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotate-border {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+.rotating-border {
+  background: conic-gradient(
+    from var(--border-angle),
+    transparent 0deg,
+    #8206f7 90deg,
+    transparent 180deg
+  );
+}
+
+.group:hover .rotating-border {
+  animation: rotate-border 2s linear infinite;
+}
